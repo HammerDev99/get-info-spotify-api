@@ -41,7 +41,7 @@ def get_spotify_data(self, pl_id):
     return(df)
 ```
 
-Por último se utilizó la clase group y del módulo itertools para agrupar por genero en el data frame que contiene toda la información obtenida de la API de Spotify.
+Por último se utilizó el método `pandas.DataFrame.groupby` para agrupar por genero el data frame que contiene toda la información obtenida de la API de Spotify.
 
 ```python
 ids=['37i9dQZEVXbOa2lmxNORXQ']
@@ -64,12 +64,28 @@ Referencias:
 
 ---
 
-## How to install
+## Construir y Ejecutar
 
+- Crear el ambiente virtual
+
+```Bash
 python3 -m venv venv
+```
 
+- Activando el ambiente virtual
+
+```Bash
 source venv/bin/activate
+```
 
+- Instalar los módulos necesarios
+
+```Bash
 python3 -m install ./requirements.txt
+```
 
+- Ejecutar la aplicación
+
+```Bash
 python ./app/playlist_by_genre_to_csv.py
+```
