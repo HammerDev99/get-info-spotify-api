@@ -1,6 +1,6 @@
 # get-info-spotify-api
 
-Consigna: Para este proyecto se requiere obtener el top de canciones de Colombia divididas por género (Cada genero tiene que ser un archivo csv). La extracción de los datos debe ser de la API de Spotify. Link API: https://developer.spotify.com/
+Consigna: Para este proyecto se requiere obtener el top de canciones de Colombia divididas por género (Cada genero tiene que ser un archivo csv). La extracción de los datos debe ser de la API de Spotify. Link API: [https://developer.spotify.com/](https://developer.spotify.com/)
 
 ---
 
@@ -22,7 +22,7 @@ En el desarrollo del reto 1, se encontró en documentación oficial de la API de
 
 ## Descripción, lecciones aprendidas y dificultades encontradas en el proceso
 
-Revisada la documentación, foros y demás se encontró que la librería [Spotipy](https://github.com/plamere/spotipy) al ser instalada y realizado el proceso de configuración del [dashboard](https://developer.spotify.com/dashboard), debe de realizarse un proceso de autenticación que puede ser de dos formas (con autenticación de usuario y sin autenticación de usuario). Por lo anterior, se probaron ambos métodos de autenticación (`auth_with_user`, `auth_without_user`). Posteriormente, se procedió a identificar algunas listas de reproducción como fuentes de información que tienen como objeto recopilar la información requerida en la consigna, a saber: 
+Revisada la documentación, foros y demás se encontró que la librería [Spotipy](https://github.com/plamere/spotipy) al ser instalada y realizado el proceso de configuración del [dashboard](https://developer.spotify.com/dashboard), debe de realizarse un proceso de autenticación que puede ser de dos formas (con autenticación de usuario y sin autenticación de usuario). Por lo anterior, se probaron ambos métodos de autenticación (`auth_with_user`, `auth_without_user`). Posteriormente, se procedió a identificar algunas listas de reproducción como fuentes de información que tienen como objeto recopilar la información requerida en la consigna, a saber:
 
 - [Top Colombia](https://open.spotify.com/playlist/37i9dQZEVXbOa2lmxNORXQ)
 - [Top Colombia 2022](https://open.spotify.com/playlist/3lnMwmYF979bEedMa6WK38)
@@ -82,24 +82,24 @@ Para acceder a los resultados ingresa [aquí](app/output/)
 
 1. Crear el ambiente virtual
 
-```Bash
-python3 -m venv venv
-```
+    ```Bash
+    python3 -m venv venv
+    ```
 
 2. Activando el ambiente virtual
 
-```Bash
-source venv/bin/activate
-```
+    ```Bash
+    source venv/bin/activate
+    ```
 
 3. Instalar los módulos necesarios
 
-```Bash
-python3 -m install ./requirements.txt
-```
+    ```Bash
+    python3 -m install ./requirements.txt
+    ```
 
 4. Ejecutar la aplicación
 
-```Bash
-python ./app/playlist_by_genre_to_csv.py
-```
+    ```Bash
+    python ./app/playlist_by_genre_to_csv.py
+    ```
