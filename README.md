@@ -4,6 +4,18 @@ Consigna: Para este proyecto se requiere obtener el top de canciones de Colombia
 
 ---
 
+## Tabla de contenidos
+
+- [get-info-spotify-api](#get-info-spotify-api)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [Conjunto de tecnologías utilizadas](#conjunto-de-tecnologías-utilizadas)
+  - [Descripción, lecciones aprendidas y dificultades encontradas en el proceso](#descripción-lecciones-aprendidas-y-dificultades-encontradas-en-el-proceso)
+  - [Resultado](#resultado)
+  - [Documentación adicional](#documentación-adicional)
+  - [Construir y Ejecutar](#construir-y-ejecutar)
+
+---
+
 ## Conjunto de tecnologías utilizadas
 
 En el desarrollo del reto 1, se encontró en documentación oficial de la API de Spotify, un apartado que relaciona dos librerías que permiten integrar el lenguaje de programación python. Estas [bibliotecas](https://developer.spotify.com/documentation/web-api/libraries/) son desarrolladas por miembros de la comunidad y no han sido revisadas por Spotify. Para el caso que nos ocupa se tiene disposición de las librerías [plamere/spotipy](https://spotipy.readthedocs.io/en/master/) y [tekore](https://pypi.org/project/tekore/) que una vez revisadas refiere más documentación la primera y por eso mismo se ha elegido como candidata para el presente desafío.
@@ -52,6 +64,10 @@ for genre, index in groupby_genre.items():
     newdf = df.loc[list(index)] # Crea subconjuntos del df agrupado por cada genero
     newdf.to_csv('output/{}.csv'.format(str(genre)),index=False)
 ```
+
+## Resultado
+
+Para acceder a los resultados ingresa [aquí](app/output/)
 
 ## Documentación adicional
 
