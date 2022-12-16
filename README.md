@@ -11,7 +11,7 @@ Consigna: Para este proyecto se requiere obtener el top de canciones de Colombia
   - [Conjunto de tecnologías utilizadas](#conjunto-de-tecnologías-utilizadas)
   - [Descripción, lecciones aprendidas y dificultades encontradas en el proceso](#descripción-lecciones-aprendidas-y-dificultades-encontradas-en-el-proceso)
   - [Resultado](#resultado)
-  - [Documentación adicional](#documentación-adicional)
+  - [Referencias](#referencias)
   - [Construir y Ejecutar](#construir-y-ejecutar)
 
 ---
@@ -67,13 +67,11 @@ for genre, index in groupby_genre.items():
 
 ## Resultado
 
+Puede acceder al script, ingresa al siguiente link: [script](app/playlist_by_genre_to_csv.py)
+
 Para acceder a los resultados ingresa [aquí](app/output/)
 
-## Documentación adicional
-
-Puede acceder al script y los resultados del reto 1 en el siguiente link: [script](tracks_by_genre_to_csv.py), [outputs](output/)
-
-Referencias:
+## Referencias
 
 - [Extracting Song Data From the Spotify API Using Python](https://towardsdatascience.com/extracting-song-data-from-the-spotify-api-using-python-b1e79388d50)
 - [Music Genre Finder: Check genres of any Song or Artist](https://www.chosic.com/music-genre-finder/)
