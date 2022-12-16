@@ -82,25 +82,25 @@ Referencias:
 
 ## Construir y Ejecutar
 
-- Crear el ambiente virtual
+1. Crear el ambiente virtual
 
 ```Bash
 python3 -m venv venv
 ```
 
-- Activando el ambiente virtual
+2. Activando el ambiente virtual
 
 ```Bash
 source venv/bin/activate
 ```
 
-- Instalar los módulos necesarios
+3. Instalar los módulos necesarios
 
 ```Bash
 python3 -m install ./requirements.txt
 ```
 
-- Ejecutar la aplicación
+4. Ejecutar la aplicación
 
 ```Bash
 python ./app/playlist_by_genre_to_csv.py
