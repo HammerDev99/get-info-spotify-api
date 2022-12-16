@@ -17,40 +17,40 @@ Revisada la documentación, foros y demás se encontró que la librería [Spotip
 - [Colombia Top 100](https://open.spotify.com/playlist/6h6uzoRBXnkjeoEjwiX27R)
 
 ```python
-        # Proceso de autenticación
-        self.sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=self.client_id,
-                                                                        client_secret=self.client_secret))
+# Proceso de autenticación
+self.sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=self.client_id,
+                                                                client_secret=self.client_secret))
 ```
 
 Luego de confirmar que el proceso de captura de los datos son recibidos correctamente, se intentó identificar el género de cada canción como comúnmente se solicita, sin embargo, se evidenció una dificultad de interpretación del género musical ya que no es un proceso simple su identificación, dado que los músicos son muy creativos y no todas las canciones o artistas tienen un género definido y por parte de la API de spotify se puede obtener información relacionada con el `audio-features` como duración, tempo (BPM), clave, popularidad, felicidad, volumen, explicito, entre otros (para más detalles ingresa [aquí](https://developer.spotify.com/console/tracks/)). Por lo anterior, se obtuvo la referencia del género según el artista de la canción y para el caso de los resultados que tienen más de un género, se eligió el primero en la lista obtenida.
 
 ```python
-    def get_spotify_data(self, pl_id):
-        ls = []
-        for track in self.sp.playlist_tracks(pl_id)["items"]:
-            track_uri = track["track"]["uri"]
-            track_name = track["track"]["name"]
-            artist_uri = track["track"]["artists"][0]["uri"]
-            artist_info = self.sp.artist(artist_uri)
-            artist_name = track["track"]["artists"][0]["name"]
-            artist_genres = artist_info["genres"]
-            # Se obtienen los datos de la playlist y se agregan en una lista
-            data = str(artist_genres[0]), str(track_uri) ,str(track_name),str(artist_name)
-            ls.append(data)
-        df = pd.DataFrame(ls, columns=['artist_genres','track_uri','track_name','artist_name'])
-        return(df)
+def get_spotify_data(self, pl_id):
+    ls = []
+    for track in self.sp.playlist_tracks(pl_id)["items"]:
+        track_uri = track["track"]["uri"]
+        track_name = track["track"]["name"]
+        artist_uri = track["track"]["artists"][0]["uri"]
+        artist_info = self.sp.artist(artist_uri)
+        artist_name = track["track"]["artists"][0]["name"]
+        artist_genres = artist_info["genres"]
+        # Se obtienen los datos de la playlist y se agregan en una lista
+        data = str(artist_genres[0]), str(track_uri) ,str(track_name),str(artist_name)
+        ls.append(data)
+    df = pd.DataFrame(ls, columns=['artist_genres','track_uri','track_name','artist_name'])
+    return(df)
 ```
 
 Por último se utilizó la clase group y del módulo itertools para agrupar por genero en el data frame que contiene toda la información obtenida de la API de Spotify.
 
 ```python
-        ids=['37i9dQZEVXbOa2lmxNORXQ']
-        pl_id = 'spotify:playlist:'+ids[0] # Crea la direccion uri para acceder a la playlist
-        df = self.get_spotify_data(pl_id) # Genera un df que contiene datos de la playlist
-        groupby_genre = df.groupby('artist_genres').groups # Diccionario que agrupa los indices del df por genero
-        for genre, index in groupby_genre.items():
-            newdf = df.loc[list(index)] # Crea subconjuntos del df agrupado por cada genero
-            newdf.to_csv('output/{}.csv'.format(str(genre)),index=False)
+ids=['37i9dQZEVXbOa2lmxNORXQ']
+pl_id = 'spotify:playlist:'+ids[0] # Crea la direccion uri para acceder a la playlist
+df = self.get_spotify_data(pl_id) # Genera un df que contiene datos de la playlist
+groupby_genre = df.groupby('artist_genres').groups # Diccionario que agrupa los indices del df por genero
+for genre, index in groupby_genre.items():
+    newdf = df.loc[list(index)] # Crea subconjuntos del df agrupado por cada genero
+    newdf.to_csv('output/{}.csv'.format(str(genre)),index=False)
 ```
 
 ## Documentación adicional
